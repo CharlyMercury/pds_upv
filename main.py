@@ -3,6 +3,8 @@ from src.actividad_1 import continuous_sine, discrete_sine
 from src.actividad_2 import understanding_freq
 from src.actividad_3 import muestreo
 from src.actividad_4 import aliasing
+from src.actividad_5 import reconstruction
+
 
 def main(options):
     if options[1] == "act_1":
@@ -23,6 +25,13 @@ def main(options):
     elif options[1] == "aliasing":
         if len(args) > 1:
             aliasing()
+    elif options[1] == "reconstruction":
+        if len(args) > 2:
+            fs = int(options[2])
+            # Función coseno 
+            F0 = 15
+            A = 1.5
+            reconstruction(F0, A, fs)
 
 
 if __name__ == '__main__':
@@ -34,6 +43,7 @@ if __name__ == '__main__':
         print("Example ( run activity 1 ) : python main.py act_1")
         print("Example ( run activity 2 ) : python main.py act_2 1")
         print("Example ( run muestreo ) : python main.py muestreo f1 f2 fs duración")
+        print("Example ( run reconstruction ) : python main.py reconstruction 30")
 
 
 """

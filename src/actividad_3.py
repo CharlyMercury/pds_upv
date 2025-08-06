@@ -28,21 +28,29 @@ def muestreo(f1, f2, fs, duration):
     # Frecuencia de Nyquist
     F_max = fs / 2
     print(f"Frecuencia de Nyquist (fs/2): {F_max:.2f} Hz")
+    
+    input("")
 
     # Cálculo de alias para f1
     if f1 > F_max:
+        print("Tenemos Aliasing")
         m1 = round(f1 / fs)
         alias1 = abs(f1 - m1 * fs)
     else:
+        print("Todo bien")
         alias1 = None
 
+    input("")
     # Cálculo de alias para f2
     if f2 > F_max:
+        print("Tenemos Aliasing")
         m2 = round(f2 / fs)
         alias2 = abs(f2 - m2 * fs)
     else:
+        print("Todo bien")
         alias2 = None
 
+    input("")
     # Crear subplots
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 6), sharex=True)
 
