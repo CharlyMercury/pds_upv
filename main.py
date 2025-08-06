@@ -29,8 +29,8 @@ def main(options):
         if len(args) > 2:
             fs = int(options[2])
             # Función coseno 
-            F0 = 15
-            A = 1.5
+            F0 = 15  # Frecuencia de mi señal (función coseno)
+            A = 1.5  # Amplitud
             reconstruction(F0, A, fs)
 
 

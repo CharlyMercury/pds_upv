@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def reconstruction(F0, A, fs):
+def reconstruction(F0, A, fs, duration = 1.0):
     # Parámetros de la señal original
     phi = 0.0
     duration = 1.0
@@ -20,14 +20,16 @@ def reconstruction(F0, A, fs):
     t_cont = np.linspace(0, duration, 20000)  
     n = np.arange(0, duration, ts)
 
-    # Señal continua y muestras discretas
+    # Señal continua
     x_cont = A * np.cos(2 * np.pi * F0 * t_cont + phi)
+    # Señal discreta
     x_disc = A * np.cos(2 * np.pi * F0 * n + phi)
 
     # Reconstrucción por interpolación sinc
     t_rec = t_cont.copy()
     x_rec = np.zeros_like(t_rec)
     for k, xk in enumerate(x_disc):
+        # Señal reconstruida
         x_rec += xk * np.sinc((t_rec - k*ts) / ts)
 
     # Gráfica
