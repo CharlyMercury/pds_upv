@@ -4,7 +4,10 @@ from src.actividad_2 import understanding_freq
 from src.actividad_3 import muestreo
 from src.actividad_4 import aliasing
 from src.actividad_5 import reconstruction
-
+from src.ejemplo_dft_1 import dft_1
+from src.ejemplo_dft_2 import dft_2
+from src.ejemplo_dft_3 import dft_3
+from src.charly_dft import discretization
 
 def main(options):
     if options[1] == "act_1":
@@ -32,6 +35,25 @@ def main(options):
             F0 = 15  # Frecuencia de mi señal (función coseno)
             A = 1.5  # Amplitud
             reconstruction(F0, A, fs)
+    elif options[1] == "dft_1":
+        if len(args) > 1:
+            dft_1()
+    elif options[1] == "dft_2":
+        if len(args) > 1:
+            dft_2()
+    elif options[1] == "dft_3":
+        if len(args) > 3:
+            m = int(options[2])
+            N = int(options[3])
+            dft_3(m, N)
+        else:
+            print("Please give an index and Samples. Example: python main.py dft_2 1 32")
+    elif options[1] == "dft_ch":
+        if len(args) > 1:
+            discretization(0.001, 8000)
+            #dft_charly([1, 2, 3, 4, 5])
+    else:
+        print("Opción inválida")
 
 
 if __name__ == '__main__':
@@ -44,6 +66,11 @@ if __name__ == '__main__':
         print("Example ( run activity 2 ) : python main.py act_2 1")
         print("Example ( run muestreo ) : python main.py muestreo f1 f2 fs duración")
         print("Example ( run reconstruction ) : python main.py reconstruction 30")
+        print("Example ( run reconstruction ) : python main.py reconstruction 30")
+        print("Example ( run dft1 ) : python main.py dft_1")
+        print("Example ( run dft2 ) : python main.py dft_2")
+        print("Example ( run dft3 ) : python main.py dft_3 m N")  # m indice de la DFT y N número de muestras
+        print("Example ( run dft ch ) : python main.py dft_ch")  # m indice de la DFT y N número de muestras
 
 
 """
