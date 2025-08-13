@@ -31,5 +31,5 @@ def dft_2():
     discrete_plotter(freqs, np.abs(X), "Transformada de Fourier", "Fourier", "Frecuencia", "Amplitud")
 
     # Transformada de Fourier Discreta Inversa
-    x_ifft = np.fft.ifft(X).real  # parte real por redondeo numérico
-    discrete_plotter(n, x_ifft, "Reconstrucción IFFT", "IFFT", "n", "Amplitud")
+    #x_ifft = np.fft.ifft(X).real  # parte real por redondeo numérico
+    #discrete_plotter(n, x_ifft, "Reconstrucción IFFT", "IFFT", "n", "Amplitud")

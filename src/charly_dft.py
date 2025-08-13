@@ -38,16 +38,16 @@ def dft_analysis(dft, fs):
     plt.tight_layout()
     plt.show()    
         
-
+## Señal Original
 def x(t):
     x_t = np.sin(2*np.pi*1000*t) + 0.5*np.sin(2*np.pi*2000*t+3/4*np.pi)
     return x_t
 
 
 def discretization(duration, fs):
-    N = duration*fs
-    n = np.arange(N)
-    x_n = x(n/fs)
+    N = duration*fs  # Número de muestra
+    n = np.arange(N) #
+    x_n = x(n/fs) # Señal discreta
     discrete_plotter(n, x_n, "Discrete Signal", "Discrete", "Samples", "Amplitude")
     DFT = dft(x_n)
     dft_analysis(DFT, fs)
